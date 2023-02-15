@@ -14,9 +14,14 @@ router.post('/', async (req, res) => {
         name: req.body.name,
         desc: req.body.desc
     })
-
     const a1 = await newResponse.save();
     res.json(a1)
+})
+
+router.delete('/:id', async (req, res) => {
+    // res.send(req.params.id)
+    const delUser = await Response.findByIdAndDelete(req.params.id)
+    res.status(200).json("Response Deleted")
 
 })
 
